@@ -1,4 +1,4 @@
-## Unix-like setup:
+## Setup:
 
 ```
 python -m venv .venv
@@ -7,7 +7,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-# Windows setup:
+## Windows setup:
 
 ```
 python -m venv .venv
