@@ -3,7 +3,7 @@ import unittest
 
 
 class TestInference(unittest.TestCase):
-    def test_infer(self, mock_IECore):
+    def test_infer(self):
         self.assertEqual("Hello World", "Hello World")
 
 unittest.main()
