@@ -6,5 +6,4 @@ class TestInference(unittest.TestCase):
     def test_infer(self, mock_IECore):
         self.assertEqual("Hello World", "Hello World")
 
-if name == 'main':
-    unittest.main()
+unittest.main()
