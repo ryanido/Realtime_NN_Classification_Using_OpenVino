@@ -22,4 +22,4 @@ jobs:
 
     - name: Run unit tests
       run: |
-        python -m unittest discover -s tests -p 'inference_test.py'
+        python -m unittest discover -s tests -p 'test_inference.py'
