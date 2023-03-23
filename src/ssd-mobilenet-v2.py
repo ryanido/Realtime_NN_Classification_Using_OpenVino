@@ -14,14 +14,6 @@ inference = Inference(
     num_requests=4
 )
 
-
-inference = Inference(
-    path_to_xml='./models/yolo/yolo.xml',
-    path_to_bin='./models/yolo/yolo.bin',
-    device_name='CPU',
-    num_requests=4
-)
-
 display_queue = queue.Queue()
 
 fps_str = '? FPS'
