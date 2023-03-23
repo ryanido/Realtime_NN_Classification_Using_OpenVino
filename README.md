@@ -1,3 +1,10 @@
+## LFS init
+
+```
+git lfs install
+git lfs pull
+```
+
 ## Setup:
 
 ```
