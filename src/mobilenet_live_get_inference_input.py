@@ -1,8 +1,6 @@
 import cv2
 import numpy
 
-numpy.set_printoptions(suppress=True, precision=3)
-
 
 def get_inference_input(image, input_size: int, input_name: str):
   data = cv2.resize(image, (input_size, input_size))

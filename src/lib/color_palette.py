@@ -19,7 +19,7 @@ def hsv2rgb(h, s, v):
   return tuple(round(c * 255) for c in colorsys.hsv_to_rgb(h, s, v))
 
 
-def get_colour_palette(n):
+def get_color_palette(n):
   rng = random.Random(0xACE)  # nosec - disable B311:random check
   candidates_num = 100
   hsv_colors = [(1.0, 1.0, 1.0)]
@@ -29,6 +29,7 @@ def get_colour_palette(n):
         (rng.random(), rng.uniform(0.8, 1.0), rng.uniform(0.5, 1.0))
         for _ in range(candidates_num)
     ]
+
     min_distances = [min_distance(hsv_colors, c) for c in colors_candidates]
     arg_max = np.argmax(min_distances)
     hsv_colors.append(colors_candidates[arg_max])

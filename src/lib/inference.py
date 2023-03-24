@@ -2,6 +2,7 @@ from openvino.inference_engine import IECore
 
 
 class Inference:
+
   _request_slot = 0
 
   def __init__(
@@ -11,7 +12,6 @@ class Inference:
       device_name: str,
       num_requests: int = 1
   ):
-
     self.path_to_xml = path_to_xml
     self.path_to_bin = path_to_bin
     self.device_name = device_name
@@ -22,20 +22,16 @@ class Inference:
     self.exec_network = ie.load_network(
         network=self.network,
         device_name=self.device_name,
-        num_requests=self.num_requests
-    )
+        num_requests=self.num_requests)
 
   def infer(self, input: any):
     result = self.exec_network.infer(input)
     return result
 
   def async_infer(self, input: any, callback):
-
     def _callback(status, request_slot):
       if status == 0:
         callback(request=self.exec_network.requests[request_slot])
-      else:
-        print("Inference request slot " + request_slot + " failture")
 
     self.exec_network.requests[self._request_slot].wait()
     self.exec_network.requests[self._request_slot].async_infer(input)
