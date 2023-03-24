@@ -1,7 +1,8 @@
 import cv2
 import numpy
-import labels.coco91 as coco
 import lib.color_palette as palette
+import labels.coco91 as coco
+
 
 colors = palette.get_color_palette(len(coco.labels))
 
