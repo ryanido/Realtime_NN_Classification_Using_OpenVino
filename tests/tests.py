@@ -40,5 +40,42 @@ class TestMNGetInferenceInput(unittest.TestCase):
         expected_data = np.transpose(resized_image, (2, 0, 1)).reshape(1, 3, input_size, input_size).astype(np.float32)
         np.testing.assert_allclose(input_data[input_name], expected_data)
         
+ class TestGetMostProbableBounds(unittest.TestCase):
+    def test_get_most_probable_bounds(self):
+        # Define some input parameters
+        box = [0.1, 0.2, 0.3, 0.4]
+        size = [100, 200]
+
+        # Call the function
+        result = mn2.get_most_probable_bounds(box, size)
+
+        # Check that the result has the expected type and value
+        expected_result = np.int32([20, 20, 60, 40])
+        np.testing.assert_array_equal(result, expected_result)
+
+    def test_get_most_probable_bounds_with_zero_box(self):
+        # Define some input parameters
+        box = [0, 0, 0, 0]
+        size = [100, 200]
+
+        # Call the function
+        result = mn2.get_most_probable_bounds(box, size)
+
+        # Check that the result has the expected type and value
+        expected_result = np.int32([0, 0, 0, 0])
+        np.testing.assert_array_equal(result, expected_result)
+
+    def test_get_most_probable_bounds_with_large_box(self):
+        # Define some input parameters
+        box = [0.5, 0.5, 2.0, 2.0]
+        size = [100, 200]
+
+        # Call the function
+        result = mn2.get_most_probable_bounds(box, size)
+
+        # Check that the result has the expected type and value
+        expected_result = np.int32([100, 50, 200, 100])
+        np.testing.assert_array_equal(result, expected_result)  
+        
 if __name__ == '__main__':
     unittest.main()
