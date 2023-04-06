@@ -20,7 +20,7 @@ class TestResizeImageLetterbox(unittest.TestCase):
         self.assertEqual(resized_image.shape[0], self.size[1])
         self.assertEqual(resized_image.shape[1], self.size[0])
 
-        class TestMNGetInferenceInput(unittest.TestCase):
+class TestMNGetInferenceInput(unittest.TestCase):
     def test_mn_get_inference_input(self):
         # Create a sample image
         image = np.zeros((128, 128, 3), dtype=np.uint8)
@@ -39,5 +39,6 @@ class TestResizeImageLetterbox(unittest.TestCase):
         resized_image = cv2.resize(image, (input_size, input_size))
         expected_data = np.transpose(resized_image, (2, 0, 1)).reshape(1, 3, input_size, input_size).astype(np.float32)
         np.testing.assert_allclose(input_data[input_name], expected_data)
+        
 if __name__ == '__main__':
     unittest.main()
