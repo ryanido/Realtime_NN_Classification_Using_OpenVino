@@ -40,7 +40,7 @@ class TestMNGetInferenceInput(unittest.TestCase):
         expected_data = np.transpose(resized_image, (2, 0, 1)).reshape(1, 3, input_size, input_size).astype(np.float32)
         np.testing.assert_allclose(input_data[input_name], expected_data)
         
- class TestGetMostProbableBounds(unittest.TestCase):
+class TestGetMostProbableBounds(unittest.TestCase):
     def test_get_most_probable_bounds(self):
         # Define some input parameters
         box = [0.1, 0.2, 0.3, 0.4]
