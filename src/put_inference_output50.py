@@ -6,12 +6,13 @@ import lib.colour_palette as palette
 
 
 def get_most_probable_bounds(box, size):
-  box[0] = max(int(box[0]), 0) # ymin
-  box[1] = max(int(box[1]), 0) # xmin
-  box[2] = min(int(box[2]), size[0]) # ymax
-  box[3] = min(int(box[3]), size[1]) # xmax
+  box[0] = max(int(box[0]), 0)  # ymin
+  box[1] = max(int(box[1]), 0)  # xmin
+  box[2] = min(int(box[2]), size[0])  # ymax
+  box[3] = min(int(box[3]), size[1])  # xmax
 
   return numpy.int32(box)
+
 
 def put_inference_output(image, inference_output):
   boxes = inference_output['yolonms_layer_1/ExpandDims_1:0'][0]
